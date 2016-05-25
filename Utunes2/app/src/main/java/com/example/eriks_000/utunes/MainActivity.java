@@ -25,9 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        // Setup drawer view
+        setupDrawerContent(nvDrawer);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -62,13 +67,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         Class fragmentClass;
         switch(menuItem.getItemId()) {
-            case R.id.nav_first_fragment:
+            case R.id.nav_Store:
                 fragmentClass = StoreFragment.class;
                 break;
-            case R.id.nav_second_fragment:
+            case R.id.nav_Checkout:
                 fragmentClass = CheckoutFragment.class;
                 break;
-            case R.id.nav_third_fragment:
+            case R.id.nav_Admin:
                 fragmentClass = StoreFragment.class;
                 break;
             default:
@@ -80,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();

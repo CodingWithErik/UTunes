@@ -2,14 +2,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_first_fragment"
+            android:id="@+id/nav_Store"
             android:checked="true"
-            android:title="First" />
+            android:title="Store" />
         <item
-            android:id="@+id/nav_second_fragment"
-            android:title="Second" />
+            android:id="@+id/nav_Checkout"
+            android:title="Checkout" />
         <item
-            android:id="@+id/nav_third_fragment"
-            android:title="Third" />
+            android:id="@+id/nav_Admin"
+            android:title="Admin" />
+        <item android:title="Sub items">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+
+                        android:title="Sub item 1" />
+                    <item
+
+                        android:title="Sub item 2" />
+                </group>
+            </menu>
+        </item>
     </group>
 </menu>
