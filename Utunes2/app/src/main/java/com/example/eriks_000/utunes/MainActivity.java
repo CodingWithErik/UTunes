@@ -45,10 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-    }
 
 
 
@@ -67,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         Class fragmentClass;
         switch(menuItem.getItemId()) {
+            case R.id.nav_Home:
+                fragmentClass = HomeFragment.class;
+                break;
             case R.id.nav_Store:
                 fragmentClass = StoreFragment.class;
                 break;
@@ -74,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = CheckoutFragment.class;
                 break;
             case R.id.nav_Admin:
-                fragmentClass = StoreFragment.class;
+                fragmentClass = AdminFragment.class;
                 break;
             default:
-                fragmentClass = StoreFragment.class;
+                fragmentClass = HomeFragment.class;
         }
 
         try {
@@ -96,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         // Close the navigation drawer
         mDrawer.closeDrawers();
     }
-
-
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+    }
 }

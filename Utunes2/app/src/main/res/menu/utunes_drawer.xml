@@ -2,8 +2,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_Store"
             android:checked="true"
+            android:id="@+id/nav_Home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_Store"
             android:title="Store" />
         <item
             android:id="@+id/nav_Checkout"
@@ -11,17 +14,6 @@
         <item
             android:id="@+id/nav_Admin"
             android:title="Admin" />
-        <item android:title="Sub items">
-            <menu>
-                <group android:checkableBehavior="single">
-                    <item
 
-                        android:title="Sub item 1" />
-                    <item
-
-                        android:title="Sub item 2" />
-                </group>
-            </menu>
-        </item>
     </group>
 </menu>
