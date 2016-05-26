@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+    private Class fragmentClass;
 
-
-
+    Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
-        Fragment fragment = null;
-        Class fragmentClass;
 
         switch(menuItem.getItemId()) {
             case R.id.nav_Home:
@@ -102,6 +100,41 @@ public class MainActivity extends AppCompatActivity {
         // Close the navigation drawer
         mDrawer.closeDrawers();
     }
+
+    //Choose and start correct fragment related to UserLoginFragment
+    public void UserLoginSelector(int fragmentId){
+
+
+        switch(fragmentId) {
+            case R.id.user_login:
+                fragmentClass = LoginFragment.class;
+                break;
+            case R.id.register_account:
+                fragmentClass = RegisterAccountFragment.class;
+                break;
+            case R.id.forgotten_password:
+                fragmentClass = ForgottenPasswordFragment.class;
+                break;
+            default:
+                fragmentClass = null;
+        }
+
+        if(fragmentClass != null) {
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        }
+    }
+
+
+
+
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

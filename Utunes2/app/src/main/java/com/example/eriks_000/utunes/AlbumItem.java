@@ -25,7 +25,7 @@ public class AlbumItem {
 
     public void SetNote(String setString)
     {
-        this.note.setText(setString);
+        //this.note.setText(setString);
     }
 
 
