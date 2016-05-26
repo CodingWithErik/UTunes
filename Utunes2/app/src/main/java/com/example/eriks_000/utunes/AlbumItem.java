@@ -1,6 +1,10 @@
 package com.example.eriks_000.utunes;
 
+<<<<<<< HEAD
 import android.content.Context;
+=======
+
+>>>>>>> refs/remotes/origin/master
 
 /**
  * Created by eriks_000 on 2016-05-26.
@@ -23,5 +27,13 @@ public class AlbumItem {
 
     }
 
+<<<<<<< HEAD
+=======
+    public void SetNote(String setString)
+    {
+        this.note.setText(setString);
+    }
+
+>>>>>>> refs/remotes/origin/master
 
 }

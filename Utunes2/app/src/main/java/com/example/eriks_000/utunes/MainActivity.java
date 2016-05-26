@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.ExpandedMenuView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+
 
 
 
@@ -63,18 +65,22 @@ public class MainActivity extends AppCompatActivity {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
         Class fragmentClass;
+
         switch(menuItem.getItemId()) {
             case R.id.nav_Home:
                 fragmentClass = HomeFragment.class;
                 break;
             case R.id.nav_Store:
-                fragmentClass = StoreFragment.class;
+                fragmentClass = AlbumListFragment.class;
                 break;
             case R.id.nav_Checkout:
                 fragmentClass = CheckoutFragment.class;
                 break;
             case R.id.nav_Admin:
                 fragmentClass = AdminFragment.class;
+                break;
+            case R.id.nav_UserLogin:
+                fragmentClass = UserLoginFragment.class;
                 break;
             default:
                 fragmentClass = HomeFragment.class;
