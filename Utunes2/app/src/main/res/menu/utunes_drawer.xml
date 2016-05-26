@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:id="@+id/nav_Home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_Store"
+            android:title="Store" />
+        <item
+            android:id="@+id/nav_Checkout"
+            android:title="Checkout" />
+        <item
+            android:id="@+id/nav_Admin"
+            android:title="Admin" />
+
+    </group>
+</menu>
