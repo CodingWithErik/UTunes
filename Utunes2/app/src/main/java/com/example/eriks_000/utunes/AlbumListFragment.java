@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,45 +22,46 @@ public class AlbumListFragment extends Fragment {
     private int albumCount;
     private int genre;
 
-    ArrayList<AlbumItem> albumItems = new ArrayList<AlbumItem>();
-
     public AlbumListFragment()
     {
 
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View albumListView = inflater.inflate(R.layout.fragment_albumlist, container, false);
+        View albumListView = inflater.inflate(R.layout.item_album, container, false);
 
-        getAlbums(30, 1);
+        ArrayList<AlbumItem> album_details = getListData();
+        final ListView listView = (ListView) getActivity().findViewById(R.id.album_listView);
+        listView.setAdapter(new AlbumAdapter(getContext(), album_details));
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Object o = listView.getItemAtPosition(position);
+                AlbumItem albumItem = (AlbumItem) o;
+                Toast.makeText(getActivity(), "Selected :" + "" + albumItem, Toast.LENGTH_LONG).show();
+            }
+        });
 
-        ArrayAdapter<AlbumItem> albumAdapter = new ArrayAdapter<AlbumItem>(
-                getActivity(),
-                R.layout.item_album,
-                R.id.list_item_album_textview,
-                albumItems );
-
-        ListView listView = (ListView) albumListView.findViewById(
-                R.id.album_listView);
-
-        listView.setAdapter(albumAdapter);
 
         return albumListView;
     }
-
-    public void getAlbums(int albumCount, int genre)
+    private ArrayList<AlbumItem> getListData()
     {
+        ArrayList<AlbumItem> results = new ArrayList<AlbumItem>();
+        AlbumItem albumItem = new AlbumItem();
+        albumItem.setAlbumName("Smurfhits");
+        albumItem.setArtistName("Smurfarna");
+        results.add(albumItem);
+        albumItem = new AlbumItem();
+        albumItem.setAlbumName("Smurfhits1");
+        albumItem.setArtistName("Smurfarna");
+        results.add(albumItem);
 
-        for(int i = 0; i < albumCount; i++)
-        {
-            AlbumItem albumItem = new AlbumItem(i, genre, "Album"+1);
-            albumItems.add(i, albumItem);
-        }
-
+        return results;
     }
+
+
 
     //TODO: dynamicly generate a list of songs based on chosen genre
 }

@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+    Fragment fragment = null;
+    Class fragmentClass;
 
 
 
@@ -63,8 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
-        Fragment fragment = null;
-        Class fragmentClass;
+
 
         switch(menuItem.getItemId()) {
             case R.id.nav_Home:
@@ -106,4 +107,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
     }
+
+
 }

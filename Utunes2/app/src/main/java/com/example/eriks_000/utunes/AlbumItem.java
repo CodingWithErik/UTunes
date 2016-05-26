@@ -1,17 +1,15 @@
 package com.example.eriks_000.utunes;
 
-<<<<<<< HEAD
 import android.content.Context;
-=======
+import android.widget.TextView;
 
->>>>>>> refs/remotes/origin/master
 
 /**
  * Created by eriks_000 on 2016-05-26.
  */
 public class AlbumItem {
-    private String title;
-    private String artist;
+    private String albumName;
+    private String artistName;
     private int id;
     private int year;
     private int genre;
@@ -19,21 +17,41 @@ public class AlbumItem {
     private int in_stock;
     private String cover_image;
 
-    public AlbumItem(int id, int genre, String title)
+
+    public AlbumItem()
     {
-        this.id = id;
-        this.genre = genre;
-        this.title = title;
+
 
     }
-
-<<<<<<< HEAD
-=======
-    public void SetNote(String setString)
+    public void setAlbumName(String albumName)
     {
-        this.note.setText(setString);
+        this.albumName = albumName;
     }
 
->>>>>>> refs/remotes/origin/master
+
+    public void setArtistName(String artistName)
+    {
+        this.artistName = artistName;
+    }
+
+    public void setPrice(float price)
+    {
+        this.price = price;
+    }
+
+    public String getAlbumName()
+    {
+        return albumName;
+    }
+
+    public String getArtistName()
+    {
+        return artistName;
+    }
+
+    public float getPrice()
+    {
+        return price;
+    }
 
 }
