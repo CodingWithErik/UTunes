@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = HomeFragment.class;
                 break;
             case R.id.nav_Store:
-                fragmentClass = StoreFragment.class;
+                fragmentClass = AlbumListFragment.class;
                 break;
             case R.id.nav_Checkout:
                 fragmentClass = CheckoutFragment.class;
