@@ -29,4 +29,19 @@
         android:text="User Login"
         android:id="@+id/button_UserLogin"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register an account"
+        android:id="@+id/button_RegisterAccount"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot the password?"
+        android:id="@+id/button_ForgottenPassword"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
