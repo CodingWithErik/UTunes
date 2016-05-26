@@ -1,6 +1,6 @@
 package com.example.eriks_000.utunes;
 
-import android.content.Context;
+
 
 /**
  * Created by eriks_000 on 2016-05-26.
@@ -21,6 +21,11 @@ public class AlbumItem {
         this.genre = genre;
         this.title = title;
 
+    }
+
+    public void SetNote(String setString)
+    {
+        this.note.setText(setString);
     }
 
 
