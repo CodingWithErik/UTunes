@@ -8,9 +8,9 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/user_login_username"
+        android:id="@+id/register_username"
         android:layout_gravity="center_horizontal"
-        android:text="Username"
+        android:text="Choose a username"
         android:textAlignment="center" />
 
     <EditText
@@ -18,30 +18,25 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/user_login_password"
+        android:id="@+id/register_password"
         android:layout_gravity="center_horizontal"
-        android:text="Password"
+        android:text="Choose a password"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/register_email"
+        android:layout_gravity="center_horizontal"
+        android:text="Email"
         android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Login"
-        android:id="@+id/button_UserLogin"
+        android:text="Register Account"
+        android:id="@+id/register_finish"
         android:layout_gravity="center_horizontal" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register an account"
-        android:id="@+id/button_RegisterAccount"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot the password?"
-        android:id="@+id/button_ForgottenPassword"
-        android:layout_gravity="center_horizontal" />
-
 </LinearLayout>

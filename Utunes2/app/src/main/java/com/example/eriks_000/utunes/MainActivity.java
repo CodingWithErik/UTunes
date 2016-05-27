@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
     private Class fragmentClass;
 
     Fragment fragment = null;
+    Boolean loggedIn = false;
+    int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,9 +108,6 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
     public void onDataPass(int data) {
 
         switch(data) {
-            case R.id.user_login:
-                fragmentClass = LoginFragment.class;
-                break;
             case R.id.register_account:
                 fragmentClass = RegisterAccountFragment.class;
                 break;
@@ -130,8 +129,27 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
 
-        Log.d("Data pass went well.", "Data passed: "+data);
+        Log.d("Data pass went well", "Data passed: "+data);
 
+    }
+
+    @Override
+    public void login(int data){
+        fragmentClass = AlbumListFragment.class;
+
+        loggedIn = true;
+        userID = data;
+
+        if(fragmentClass != null) {
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        }
     }
 
     @Override
