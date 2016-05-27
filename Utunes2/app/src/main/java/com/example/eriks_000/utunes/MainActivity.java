@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
         }
     }
 
-    
+
     //Choose and start correct fragment related to UserLoginFragment
     public void UserLoginSelector(int fragmentId) {
         switch (fragmentId) {
