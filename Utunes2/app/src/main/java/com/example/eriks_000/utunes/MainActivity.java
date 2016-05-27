@@ -10,16 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.ExpandedMenuView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserLoginFragment.passingInterface{
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     private Class fragmentClass;
     Fragment fragment = null;
+    Boolean loggedIn = false;
+    int userID;
 
 
     @Override
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawer.closeDrawers();
     }
 
+<<<<<<< HEAD
     public void GenreSelector(int fragmentId) {
         switch (fragmentId) {
             case R.id.nav_Pop:
@@ -113,9 +117,15 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = LoginFragment.class;
                 break;
             case R.id.register_account:
+=======
+    @Override
+    public void onDataPass(int data) {
+        switch(data) {
+            case R.id.button_RegisterAccount:
+>>>>>>> origin/master
                 fragmentClass = RegisterAccountFragment.class;
                 break;
-            case R.id.forgotten_password:
+            case R.id.button_ForgottenPassword:
                 fragmentClass = ForgottenPasswordFragment.class;
                 break;
             default:
@@ -137,11 +147,29 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
+
+        Log.d("Data pass went well", "Data passed: "+data);
+
     }
 
+    @Override
+    public void login(int data){
+        fragmentClass = AlbumListFragment.class;
 
+        loggedIn = true;
+        userID = data;
 
-
+        if(fragmentClass != null) {
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        }
+    }
 
 
 

@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by eriks_000 on 2016-05-25.
- */
+/*
+  Created by eriks_000 on 2016-05-25.*/
+
+
+//might be an unnecesary fragment
 public class LoginFragment extends Fragment {
 
     public LoginFragment()
