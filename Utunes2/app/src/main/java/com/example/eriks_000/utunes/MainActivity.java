@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity implements UserLoginFragment.passingInterface{
+public class MainActivity extends AppCompatActivity implements UserLoginFragment.passingInterface {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
