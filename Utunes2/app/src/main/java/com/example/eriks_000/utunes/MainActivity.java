@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
 
-        switch(menuItem.getItemId()) {
+        switch (menuItem.getItemId()) {
             case R.id.nav_Home:
                 fragmentClass = HomeFragment.class;
                 break;
@@ -86,15 +86,24 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             default:
                 fragmentClass = HomeFragment.class;
         }
+        if (fragmentClass != null) {
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
-        activateFragment(fragmentClass);
 
-        // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
-        // Set action bar title
-        setTitle(menuItem.getTitle());
-        // Close the navigation drawer
-        mDrawer.closeDrawers();
+            // Highlight the selected item has been done by NavigationView
+            menuItem.setChecked(true);
+            // Set action bar title
+            setTitle(menuItem.getTitle());
+            // Close the navigation drawer
+            mDrawer.closeDrawers();
+        }
     }
 
 
@@ -104,23 +113,34 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
                 fragmentClass = AlbumListFragment.class;
                 break;
         }
-        activateFragment(fragmentClass);
+        if (fragmentClass != null) {
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        }
     }
 
 
     //Choose and start correct fragment related to UserLoginFragment
-    public void UserLoginSelector(int fragmentId){
+    public void UserLoginSelector(int fragmentId) {
 
 
-        switch(fragmentId) {
+        switch (fragmentId) {
             case R.id.user_login:
                 fragmentClass = LoginFragment.class;
                 break;
             case R.id.register_account:
+        }
+    }
 
     @Override
     public void onDataPass(int data) {
-        switch(data) {
+        switch (data) {
             case R.id.button_RegisterAccount:
 
                 fragmentClass = RegisterAccountFragment.class;
@@ -131,13 +151,7 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             default:
                 fragmentClass = null;
         }
-
-        activateFragment(fragmentClass);
-    }
-
-    public void activateFragment(Class fragmentClass)
-    {
-        if(fragmentClass != null) {
+        if (fragmentClass != null) {
             try {
                 fragment = (Fragment) fragmentClass.newInstance();
             } catch (Exception e) {
@@ -147,9 +161,8 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
-
     }
-
+        
     @Override
     public void login(int data){
         fragmentClass = AlbumListFragment.class;
