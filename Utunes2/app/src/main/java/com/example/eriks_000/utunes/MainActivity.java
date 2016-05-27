@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.ExpandedMenuView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 
@@ -102,8 +103,9 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
     }
 
     @Override
-    public void onDataPass(int fragmentId) {
-        switch(fragmentId) {
+    public void onDataPass(int data) {
+
+        switch(data) {
             case R.id.user_login:
                 fragmentClass = LoginFragment.class;
                 break;
@@ -127,6 +129,9 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
+
+        Log.d("Data pass went well.", "Data passed: "+data);
+
     }
 
     @Override

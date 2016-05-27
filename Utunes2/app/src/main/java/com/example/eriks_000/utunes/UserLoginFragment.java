@@ -47,11 +47,15 @@ public class UserLoginFragment extends Fragment implements OnClickListener{
 
     @Override
     public void onClick(View v){
+        passData(v.getId());
+    }
 
+    public void passData(int data){
+        dataPasser.onDataPass(data);
     }
 
     public interface passingInterface{
-        public void onDataPass(int fragmentId);
+        public void onDataPass(int data);
     }
 
     public void onAttach(Context context){
