@@ -1,5 +1,8 @@
 package com.example.eriks_000.utunes;
 
+import android.app.Activity;
+import android.content.Context;
+import android.location.GpsStatus;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +23,7 @@ public class UserLoginFragment extends Fragment implements OnClickListener{
     Button buttonRegister;
     Button buttonForgotten;
 
-    int fragmentId;
+    passingInterface dataPasser;
 
     public UserLoginFragment(){
 
@@ -44,10 +47,24 @@ public class UserLoginFragment extends Fragment implements OnClickListener{
 
     @Override
     public void onClick(View v){
-
+        passData(v.getId());
     }
 
-    public int getFragmentId(){
-        return this.fragmentId;
+    public void passData(int data){
+        dataPasser.onDataPass(data);
+    }
+
+    public interface passingInterface{
+        public void onDataPass(int data);
+    }
+
+    public void onAttach(Context context){
+        super.onAttach(context);
+
+        try {
+            dataPasser = (passingInterface) context;
+        } catch(ClassCastException e){
+            throw new ClassCastException(context.toString()+" must implement mydataBack");
+        }
     }
 }
