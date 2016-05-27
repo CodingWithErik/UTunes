@@ -106,12 +106,11 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
 
     @Override
     public void onDataPass(int data) {
-
         switch(data) {
-            case R.id.register_account:
+            case R.id.button_RegisterAccount:
                 fragmentClass = RegisterAccountFragment.class;
                 break;
-            case R.id.forgotten_password:
+            case R.id.button_ForgottenPassword:
                 fragmentClass = ForgottenPasswordFragment.class;
                 break;
             default:
