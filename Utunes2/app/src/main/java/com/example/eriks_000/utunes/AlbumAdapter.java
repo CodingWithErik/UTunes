@@ -43,7 +43,7 @@ public class AlbumAdapter extends BaseAdapter {
         ViewHolder holder;
         if(convertView == null)
         {
-            convertView =layoutInflater.inflate(R.layout.fragment_albumlist, null);
+            convertView =layoutInflater.inflate(R.layout.fragment_albumlist, parent, false);
             holder = new ViewHolder();
             holder.albumTextView = (TextView)convertView.findViewById(R.id.album);
             holder.artistTextView = (TextView)convertView.findViewById(R.id.artist);
@@ -54,9 +54,11 @@ public class AlbumAdapter extends BaseAdapter {
         else
         {
             holder = (ViewHolder) convertView.getTag();
+
         }
         holder.albumTextView.setText(albumItems.get(position).getAlbumName());
         holder.artistTextView.setText(albumItems.get(position).getArtistName());
+
 
         return convertView;
     }

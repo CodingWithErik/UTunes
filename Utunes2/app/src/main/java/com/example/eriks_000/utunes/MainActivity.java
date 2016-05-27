@@ -18,14 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
-<<<<<<< HEAD
     private Class fragmentClass;
-=======
     Fragment fragment = null;
-    Class fragmentClass;
->>>>>>> refs/remotes/origin/erik_devbranch
 
-    Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +63,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/erik_devbranch
 
         switch(menuItem.getItemId()) {
             case R.id.nav_Home:
                 fragmentClass = HomeFragment.class;
                 break;
             case R.id.nav_Store:
-                fragmentClass = AlbumListFragment.class;
+                fragmentClass = StoreFragment.class;
                 break;
             case R.id.nav_Checkout:
                 fragmentClass = CheckoutFragment.class;
@@ -93,14 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = HomeFragment.class;
         }
 
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        activateFragment(fragmentClass);
 
         // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
@@ -109,6 +93,16 @@ public class MainActivity extends AppCompatActivity {
         // Close the navigation drawer
         mDrawer.closeDrawers();
     }
+
+    public void GenreSelector(int fragmentId) {
+        switch (fragmentId) {
+            case R.id.nav_Pop:
+                fragmentClass = AlbumListFragment.class;
+                break;
+        }
+        activateFragment(fragmentClass);
+    }
+
 
     //Choose and start correct fragment related to UserLoginFragment
     public void UserLoginSelector(int fragmentId){
@@ -128,6 +122,11 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = null;
         }
 
+        activateFragment(fragmentClass);
+    }
+
+    public void activateFragment(Class fragmentClass)
+    {
         if(fragmentClass != null) {
             try {
                 fragment = (Fragment) fragmentClass.newInstance();
@@ -139,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
     }
+
+
 
 
 

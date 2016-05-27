@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/user_login"
+            android:title="User Login" />
+        <item
+            android:id="@+id/register_account"
+            android:title="Register Account" />
+        <item
+            android:id="@+id/forgotten_password"
+            android:title="Forgotten Password" />
+
+    </group>
+</menu>

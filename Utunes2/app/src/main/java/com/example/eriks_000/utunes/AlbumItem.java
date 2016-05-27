@@ -46,11 +46,7 @@ public class AlbumItem {
 
     public String getArtistName()
     {
-<<<<<<< HEAD
-        //this.note.setText(setString);
-=======
         return artistName;
->>>>>>> refs/remotes/origin/erik_devbranch
     }
 
     public float getPrice()

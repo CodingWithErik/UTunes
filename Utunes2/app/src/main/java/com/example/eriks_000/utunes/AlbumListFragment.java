@@ -29,11 +29,13 @@ public class AlbumListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View albumListView = inflater.inflate(R.layout.item_album, container, false);
+
+        View albumListView = inflater.inflate(R.layout.fragment_albumlist, container, false);
 
         ArrayList<AlbumItem> album_details = getListData();
-        final ListView listView = (ListView) getActivity().findViewById(R.id.album_listView);
-        listView.setAdapter(new AlbumAdapter(getContext(), album_details));
+        final ListView listView = (ListView) albumListView.findViewById(R.id.album_listView);
+        AlbumAdapter adapter = new AlbumAdapter(this.getActivity(), album_details);
+        listView.setAdapter(adapter);
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
