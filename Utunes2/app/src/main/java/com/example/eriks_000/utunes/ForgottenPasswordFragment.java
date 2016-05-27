@@ -19,7 +19,7 @@ public class ForgottenPasswordFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View forgottenView = inflater.inflate(R.layout.fragment_admin, container, false);
+        View forgottenView = inflater.inflate(R.layout.fragment_forgotten_password, container, false);
 
         return forgottenView;
     }
