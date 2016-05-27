@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
         mDrawer.closeDrawers();
     }
 
-<<<<<<< HEAD
+
     public void GenreSelector(int fragmentId) {
         switch (fragmentId) {
             case R.id.nav_Pop:
@@ -117,12 +117,12 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
                 fragmentClass = LoginFragment.class;
                 break;
             case R.id.register_account:
-=======
+
     @Override
     public void onDataPass(int data) {
         switch(data) {
             case R.id.button_RegisterAccount:
->>>>>>> origin/master
+
                 fragmentClass = RegisterAccountFragment.class;
                 break;
             case R.id.button_ForgottenPassword:
@@ -147,8 +147,6 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
-
-        Log.d("Data pass went well", "Data passed: "+data);
 
     }
 
