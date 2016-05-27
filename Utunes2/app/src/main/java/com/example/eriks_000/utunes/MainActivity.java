@@ -13,8 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements UserLoginFragment.passingInterface, StoreFragment.passingInterface {
+
+public class MainActivity extends AppCompatActivity implements UserLoginFragment.passingInterface, StoreFragment.passingInterface, RegisterAccountFragment.passingInterface {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
     private Class fragmentClass;
     Fragment fragment = null;
     Boolean loggedIn = false;
+    ArrayList<DummyUser> dummyUsers = new ArrayList<>();
     int userID;
     int genre;
 
@@ -183,7 +186,10 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
         }
     }
 
-
+    @Override
+    public void userTransfer(DummyUser dummyUser){
+        dummyUsers.add(dummyUser);
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

@@ -10,7 +10,7 @@
         android:ems="10"
         android:id="@+id/register_username"
         android:layout_gravity="center_horizontal"
-        android:text="Choose a username"
+        android:text="Username"
         android:textAlignment="center" />
 
     <EditText
@@ -20,7 +20,7 @@
         android:ems="10"
         android:id="@+id/register_password"
         android:layout_gravity="center_horizontal"
-        android:text="Choose a password"
+        android:text="Password"
         android:textAlignment="center" />
 
     <EditText
