@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
     Fragment fragment = null;
     Boolean loggedIn = false;
     int userID;
+    int genre;
 
 
     @Override
@@ -106,8 +107,20 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
         }
     }
 
+    
+    //Choose and start correct fragment related to UserLoginFragment
+    public void UserLoginSelector(int fragmentId) {
+        switch (fragmentId) {
+            case R.id.user_login:
+                fragmentClass = LoginFragment.class;
+                break;
+            case R.id.register_account:
+        }
+    }
 
-    public void GenreSelector(int data) {
+    @Override
+    public void genre(int data)
+    {
         switch (data) {
             case 1:
                 fragmentClass = AlbumListFragment.class;
@@ -124,22 +137,6 @@ public class MainActivity extends AppCompatActivity implements UserLoginFragment
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         }
-    }
-
-
-    //Choose and start correct fragment related to UserLoginFragment
-    public void UserLoginSelector(int fragmentId) {
-        switch (fragmentId) {
-            case R.id.user_login:
-                fragmentClass = LoginFragment.class;
-                break;
-            case R.id.register_account:
-        }
-    }
-
-    @Override
-    public void genre(int data)
-    {
 
     }
     @Override

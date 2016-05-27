@@ -20,6 +20,7 @@ public class StoreFragment extends Fragment implements OnClickListener {
 
     Button b_Pop, b_Rock, b_Jazz, b_Reggae, b_Metal;
     passingInterface dataPasser;
+    int genre = 1;
 
     public StoreFragment()
     {
@@ -29,6 +30,8 @@ public class StoreFragment extends Fragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View storeView = inflater.inflate(R.layout.fragment_store, container, false);
+
+        int genre = 1;
 
         b_Pop = (Button)storeView.findViewById(R.id.nav_Pop);
         b_Rock = (Button)storeView.findViewById(R.id.nav_Rock);
@@ -47,7 +50,7 @@ public class StoreFragment extends Fragment implements OnClickListener {
     @Override
     public void onClick(View v){
         if(v.getId() == R.id.nav_Pop){
-            dataPasser.genre(1);
+            dataPasser.genre(genre);
         }
     }
     @Override
